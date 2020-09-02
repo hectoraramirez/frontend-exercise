@@ -30,3 +30,5 @@ Once you're done, send the following to [talent@tenatek.com](mailto:talent@tenat
 - Remember, you may not ask Tenatek staff for any clarifications.
 
 **Best of luck! We believe in you.**
+
+&copy; 2020 Tenatek
