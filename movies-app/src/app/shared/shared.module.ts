@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
+import { FilterSMovieComponent } from './filter-smovie/filter-smovie.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     FooterComponent,
-    MoviesListComponent
+    MoviesListComponent,
+    FilterSMovieComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { MoviesListComponent } from './movies-list/movies-list.component';
   exports: [
     NavbarComponent,
     FooterComponent,
-    MoviesListComponent
+    MoviesListComponent,
+    FilterSMovieComponent
   ]
 })
 export class SharedModule { }

@@ -1,20 +1,18 @@
-<mat-grid-list cols="3" rowHeight="2:2">
-  <mat-grid-tile *ngFor="let movie of movieslist">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          {{movie.title}}
-        </mat-card-title>
-        <mat-card-subtitle>{{movie.movie}}</mat-card-subtitle>
-      </mat-card-header>
+<cdk-virtual-scroll-viewport itemSize="6" style="height:100%;">
+  <mat-card *cdkVirtualFor="let movie of movieslist" class="mat-elevation-z9">
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" class="mat-elevation-z8">
+    <mat-card-header>
+      <mat-card-title>
+        {{movie.titulo}}
+      </mat-card-title>
+    </mat-card-header>
       <mat-card-content>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi fuga, inventore illo voluptatibus rerum, facilis ipsa cupiditate similique deleniti explicabo temporibus neque iure magni eum minus laboriosam nam quas corporis?
-        </p>
+        <span>{{movie.genero}}</span>
+        <span>{{movie.clasificacion}}</span>
+        <span>{{movie.duracion}}</span>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-flat-button >Ver horarios</button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+    <mat-card-actions>
+      <button mat-flat-button >Ver horarios</button>
+    </mat-card-actions>
+  </mat-card>
+</cdk-virtual-scroll-viewport>

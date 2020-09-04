@@ -1,3 +1,10 @@
 <app-navbar></app-navbar>
-  <app-movies-list></app-movies-list>
-<app-footer></app-footer>
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <app-filter-smovie></app-filter-smovie>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-movies-list></app-movies-list>
+  </mat-drawer-content>
+</mat-drawer-container>
+
