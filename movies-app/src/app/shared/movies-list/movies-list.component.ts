@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-movies-list',
@@ -7,22 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class MoviesListComponent implements OnInit {
+  @Input() movielist;
   //array test of list of movies
-  movieslist: any [] = [];
   constructor() { }
 
   ngOnInit() {
-
-    for (let id = 0; id <= 100; id ++) {
-      this.movieslist.push(
-        {
-          titulo: 'titulo de la pelicula' + id,
-          genero: 'terror',
-          clasificacion: 'AAA',
-          duracion: 30
-        }
-      )
-    }
 
   }
 

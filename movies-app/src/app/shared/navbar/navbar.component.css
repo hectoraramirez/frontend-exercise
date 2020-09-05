@@ -1,3 +1,5 @@
-.navbar {
-  position: fix;
+.nav {
+  position: absolute;
+  top: 0px;
+  width: 100%;
 }

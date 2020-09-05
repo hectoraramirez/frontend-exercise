@@ -1,3 +1,4 @@
+import { MoviesService } from './../../../services/movies.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomemainComponent implements OnInit {
 
-  constructor() { }
+  public movies: any [] = [];
 
-  ngOnInit() {
+  constructor( private movieService: MoviesService) {
 
   }
 
+  ngOnInit() {
+    this.loadMovies();
+  }
+
+  /**
+   * get list of movies
+   */
+  loadMovies() {
+    this.movieService.getMoviesList().subscribe( res => {
+      this.movies = res.results;
+    }, error => {
+      console.log(error);
+
+    });
+
+  }
 }

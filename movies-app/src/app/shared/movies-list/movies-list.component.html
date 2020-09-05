@@ -1,18 +1,43 @@
-<cdk-virtual-scroll-viewport itemSize="6" style="height:100%;">
-  <mat-card *cdkVirtualFor="let movie of movieslist" class="mat-elevation-z9">
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" class="mat-elevation-z8">
-    <mat-card-header>
-      <mat-card-title>
-        {{movie.titulo}}
-      </mat-card-title>
-    </mat-card-header>
-      <mat-card-content>
-        <span>{{movie.genero}}</span>
-        <span>{{movie.clasificacion}}</span>
-        <span>{{movie.duracion}}</span>
-      </mat-card-content>
-    <mat-card-actions>
-      <button mat-flat-button >Ver horarios</button>
-    </mat-card-actions>
-  </mat-card>
-</cdk-virtual-scroll-viewport>
+<div class="container" style="margin-top: 5%;">
+
+  <div class="row row-cols-1 row-cols-md-3">
+
+    <div class="col mb-4" *ngFor="let movie of movielist">
+
+      <div class="shadow bg-white rounded">
+
+        <div class="card" style="width: 350px;">
+            <!--header-->
+            <!--img-top-->
+            <img src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" class="card-img-top" alt="...">
+            <!--body-->
+            <div class="card-title">
+              <h3><i class="fas fa-ticket-alt"></i> {{movie.title}}</h3>
+            </div>
+            <div class="card-body">
+              <div class="row row-cols-2 row-cols-sm-2">
+                <div class="col-sm">
+                  <h6>
+                   <span class="text-primary"><i class="fas fa-calendar-alt"></i></span> {{movie.release_date}}
+                  </h6>
+                </div>
+                <div class="col-sm">
+                  <h6>
+                    <span class="text-primary"><i class="fas fa-heart"></i></span>{{movie.popularity}}
+                  </h6>
+                </div>
+                <div class="col-sm">
+                  <h6>
+                    <span class="text-primary"><i class="fas fa-language"></i>:</span> {{ movie.original_language | uppercase}}
+                  </h6>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a type="button" class="btn btn-outline-primary btn-block" [routerLink] = "['/movieview',movie.id]" ><i class="fas fa-hand-point-right"></i> Showtimes</a>
+            </div>
+        </div><!--end Card-->
+      </div><!--end shadow-->
+    </div><!--EndCol-->
+  </div><!--End rows-->
+</div><!---->
