@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+import { MoviesService } from './../../services/movies.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,12 +9,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MovieviewComponent implements OnInit {
 
-  @Input() movieDesc: any;
-
-  constructor() {}
+  @Input() idMovie: string;
+  movieDesc: Observable<any>;
+  constructor(private serviceMovie: MoviesService) {}
 
   ngOnInit() {
-    console.log(this.movieDesc);
+    this.getDetailsMovie();
+  }
+
+  /**
+   * get detials of movie
+   */
+  getDetailsMovie() {
+    this.movieDesc = this.serviceMovie.getDetailMovie(this.idMovie);
   }
 
 }

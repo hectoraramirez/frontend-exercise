@@ -1,0 +1,15 @@
+  <table class="table">
+    <thead>
+      <tr scope="row" colspan="8">
+        Screen
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let plc of listPlaces">
+        <td *ngFor="let placeS of plc.arrayplace">
+          <button type="button" class="btn btn-primary btn-lg" (click)="getPlaces(placeS.place)">{{placeS.place}}</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+

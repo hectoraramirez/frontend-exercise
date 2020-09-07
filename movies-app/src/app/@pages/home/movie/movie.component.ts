@@ -10,33 +10,36 @@ import { ActivatedRoute } from '@angular/router';
 export class MovieComponent implements OnInit {
 
   id: any;
-  movieDesc: any;
+  movieDesc$;
+
+  showtime: any = '';
+  placeRoom: any = '';
+
   constructor( private rout: ActivatedRoute, private serviceMovie: MoviesService) {
     this.id = this.rout.snapshot.paramMap.get('id');
   }
 
   ngOnInit() {
-    this.getDetailsMovie();
+
   }
 
   /**
-   * get detials of movie
+   * get information of showtime
+   * @param event
    */
-  getDetailsMovie() {
-    this.serviceMovie.getDetailMovie(this.id).subscribe(
-      res => {
-        this.movieDesc = {
-          title: res.title,
-          overview: res.overview,
-          language: res.languages,
-          genres: res.genres,
-          imgsrc: res.poster_path,
-          releaseDate: res.release_date
-        }
-      }
-      , error =>{
-        console.log(error);
-      });
+  getShowtime(event) {
+    this.showtime = event.showtime;
+  }
+
+  /**
+   * send information of ticket
+   * @param event
+   */
+  sendTicket(event) {
+    this.placeRoom =  event.place;
+    console.log(this.placeRoom);
+    console.log(this.showtime);
+
   }
 
 }

@@ -6,13 +6,17 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MovieviewComponent } from './movieview/movieview.component';
+import { PlacesComponent } from './places/places.component';
+import { ShowtimesmovieComponent } from './showtimesmovie/showtimesmovie.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     FooterComponent,
     MoviesListComponent,
-    MovieviewComponent
+    MovieviewComponent,
+    PlacesComponent,
+    ShowtimesmovieComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,9 @@ import { MovieviewComponent } from './movieview/movieview.component';
     NavbarComponent,
     FooterComponent,
     MoviesListComponent,
-    MovieviewComponent
+    MovieviewComponent,
+    PlacesComponent,
+    ShowtimesmovieComponent
   ]
 })
 export class SharedModule { }
