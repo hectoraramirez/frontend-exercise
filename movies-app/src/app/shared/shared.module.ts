@@ -9,6 +9,7 @@ import { MovieviewComponent } from './movieview/movieview.component';
 import { PlacesComponent } from './places/places.component';
 import { ShowtimesmovieComponent } from './showtimesmovie/showtimesmovie.component';
 
+
 @NgModule({
   declarations: [
     NavbarComponent,

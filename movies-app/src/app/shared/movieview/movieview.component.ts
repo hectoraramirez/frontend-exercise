@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs';
 import { MoviesService } from './../../services/movies.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 
 @Component({
   selector: 'app-movieview',

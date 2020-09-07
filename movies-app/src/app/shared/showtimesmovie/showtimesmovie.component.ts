@@ -67,7 +67,7 @@ export class ShowtimesmovieComponent implements OnInit {
    * send to timeshow of root component
    * @param showtimeSelect
    */
-  getShowTime(showtimeSelect) {
-    this.showtime.emit({ showtime: showtimeSelect});
+  getShowTime(showDateSelect, showtimeSelect) {
+    this.showtime.emit({ showtime: {date: showDateSelect , time: showtimeSelect}});
   }
 }

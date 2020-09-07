@@ -1,6 +1,7 @@
-import { MoviesService } from './../../../services/movies.service';
-import { Component, OnInit } from '@angular/core';
+import { ModalTicket } from './modal-ticket';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-movie',
@@ -10,13 +11,16 @@ import { ActivatedRoute } from '@angular/router';
 export class MovieComponent implements OnInit {
 
   id: any;
+  title: any;
   movieDesc$;
 
-  showtime: any = '';
-  placeRoom: any = '';
+  public showDate: any = '';
+  public showtime: any = '';
+  public placeRoom: any = '';
 
-  constructor( private rout: ActivatedRoute, private serviceMovie: MoviesService) {
+  constructor( private rout: ActivatedRoute, private dialog: MatDialog) {
     this.id = this.rout.snapshot.paramMap.get('id');
+    this.title = this.rout.snapshot.paramMap.get('title');
   }
 
   ngOnInit() {
@@ -28,7 +32,8 @@ export class MovieComponent implements OnInit {
    * @param event
    */
   getShowtime(event) {
-    this.showtime = event.showtime;
+    this.showtime = event.showtime.time;
+    this.showDate = event.showtime.date;
   }
 
   /**
@@ -37,9 +42,15 @@ export class MovieComponent implements OnInit {
    */
   sendTicket(event) {
     this.placeRoom =  event.place;
-    console.log(this.placeRoom);
-    console.log(this.showtime);
-
   }
 
+  /**
+   *
+   */
+  cancelTicket(event) {
+    this.showtime = event.schedule;
+    this.placeRoom = event.placeroom;
+  }
 }
+
+

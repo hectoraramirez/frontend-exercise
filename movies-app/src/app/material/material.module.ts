@@ -11,7 +11,8 @@ import {
   MatListModule,
   MatFormFieldModule,
   MatSelectModule,
-  MatInputModule
+  MatInputModule,
+  MatDialogModule
 } from '@angular/material';
 
 // Importacion del CDK para aplicar el scroll de los catalogos
@@ -29,7 +30,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatListModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   exports: [
     MatToolbarModule,
@@ -42,7 +44,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatListModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }
