@@ -10,25 +10,25 @@ export class ShowtimesmovieComponent implements OnInit {
   @Output() showtime = new EventEmitter();
 
   listSchedule: any [] = [{
-    schedule: '9:00 am - 10:00 am'
+    schedule: '9:00 hrs - 10:00 hrs'
   }, {
-    schedule: '10:30 am - 11:30 am'
+    schedule: '10:30 hrs - 11:30 hrs'
   }, {
-    schedule: '12:00 am - 1:00 pm'
+    schedule: '12:00 hrs - 13:00 hrs'
   }, {
-    schedule: '1:30 pm - 2:30 pm'
+    schedule: '13:30 hrs - 14:30 hrs'
   }, {
-    schedule: '3:00 pm - 4:00 pm'
+    schedule: '15:00 hrs - 16:00 hrs'
   }, {
-    schedule: '4:30 pm - 5:30 pm'
+    schedule: '16:30 hrs - 17:30 hrs'
   }, {
-    schedule: '6:00 pm - 7:00 pm'
+    schedule: '18:00 hrs - 19:00 hrs'
   }, {
-    schedule: '7:30 pm - 8:30 pm'
+    schedule: '19:30 hrs - 20:30 hrs'
   }, {
-    schedule: '9:00 pm - 10:00 pm'
+    schedule: '21:00 hrs - 22:00 hrs'
   }, {
-    schedule: '10:30 pm - 11:00 pm'
+    schedule: '22:30 hrs - 13:00 hrs'
   }];
 
   datesScheduler: any [] = [];
@@ -39,6 +39,8 @@ export class ShowtimesmovieComponent implements OnInit {
   ngOnInit() {
     this.loadShowTimes();
     this.scheduleDay = this.loadSchedules();
+    console.log(this.scheduleDay);
+
   }
 
   /**
@@ -58,7 +60,12 @@ export class ShowtimesmovieComponent implements OnInit {
   loadSchedules(): any [] {
     const tmp: any [] = [];
     for (let i = 0; i <= 5 ; i++) {
-      tmp.push(this.listSchedule[Math.floor (Math.random() * this.listSchedule.length)]);
+      const time = this.listSchedule[Math.floor (Math.random() * this.listSchedule.length)];
+      console.log(time);
+      if (tmp.indexOf(time) === -1) {
+        tmp.push(time);
+      }
+      console.log(tmp);
     }
     return tmp.sort();
   }
@@ -68,6 +75,8 @@ export class ShowtimesmovieComponent implements OnInit {
    * @param showtimeSelect
    */
   getShowTime(showDateSelect, showtimeSelect) {
-    this.showtime.emit({ showtime: {date: showDateSelect , time: showtimeSelect}});
+    this.showtime.emit({
+      showtime: {date: showDateSelect , time: showtimeSelect}
+    });
   }
 }
